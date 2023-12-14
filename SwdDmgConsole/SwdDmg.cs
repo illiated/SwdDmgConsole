@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SwdDmgConsole
 {
@@ -15,6 +16,7 @@ namespace SwdDmgConsole
         {
             roll = initialRoll;
             CalculateDamage();
+            Debug.WriteLine($"Damage calculated after initial roll: Rolled {initialRoll} for {Damage}");
         }
 
         /// <summary>
@@ -30,13 +32,15 @@ namespace SwdDmgConsole
         public int Roll
         {
             get { return roll; }
+           
             set
             {
+                Debug.WriteLine($"Rolled {roll}.");
                 roll = value;
                 CalculateDamage();
             }
         }
-
+      
         private bool flaming;
 
         /// <summary>
@@ -48,8 +52,10 @@ namespace SwdDmgConsole
             get { return flaming; }
             set
             {
+                Debug.WriteLine($"flaming is {flaming}.");
                 flaming = value;
                 CalculateDamage();
+                Debug.WriteLine($"Flaming set done: Flame condition is {flaming}, Damage = {Damage}");
             }
         }
 
@@ -64,8 +70,10 @@ namespace SwdDmgConsole
             get { return magic; }
             set
             {
+                Debug.WriteLine($"magic is {magic}.");
                 magic = value;
                 CalculateDamage();
+                Debug.WriteLine($"Magic set done: Magic condition is {Magic}, Damage = {Damage}");
             }
         }
 
